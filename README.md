@@ -10,3 +10,5 @@ Riepilogo Esercitazione
 5. Visualizzazione di tutti i cocktails in una view
 Ogni membro del team deve contribuire allo svolgimento dell'esercizio utilizzando git
 (pull, branch, merge, push).
+
+History: Elisa DATA 31_01_2024 ORE 23:48 - merge add comments;
