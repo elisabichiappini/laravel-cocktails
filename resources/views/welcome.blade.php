@@ -11,7 +11,12 @@
 </head>
 
 <body>
-    <h1 class="text-center py-5">Cocktails</h1>
+    {{--header--}}
+    <header>
+        <h1 class="text-center py-5">Cocktails</h1>
+    </header>
+    {{--header--}}
+    {{--main--}}
     <div class="container d-flex justify-content-center flex-wrap gap-3">
         @foreach ($cocktails as $cocktail)
             {{-- <li>{{ $cocktail['name'] }}</li> --}}
@@ -26,7 +31,7 @@
             </div>
         @endforeach
     </div>
+    {{--main--}}
 
 </body>
-
 </html>
