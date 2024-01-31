@@ -18,7 +18,7 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h2>Name: {{ $cocktail['name'] }}</h2>
-                    <h3>Brand: {{ $cocktail['bramd'] }}</h3>
+                    <h3>Brand: {{ $cocktail['brand'] }}</h3>
                     <h4>Price: {{ $cocktail['price'] }}</h4>
                     <h4>Is Alcholic: {{ $cocktail['is_alcholic'] }}</h4>
                     <p>Description: {{ $cocktail['description'] }}</p>
