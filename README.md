@@ -11,10 +11,3 @@ Riepilogo Esercitazione
 5. Visualizzazione di tutti i cocktails in una view
    Ogni membro del team deve contribuire allo svolgimento dell'esercizio utilizzando git
    (pull, branch, merge, push).
-
-6. Index view
-7. Show
-8. Store Create
-9. Edit Update
-10. Delete
-11. Valided
