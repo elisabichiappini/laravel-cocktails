@@ -1,0 +1,1 @@
+# View da aggiungere in progetti di laravel per una gestione delle viste con il pacchetto breeze installato successivamente e sostituire bootstrap a postcss e taillwind
