@@ -27,6 +27,16 @@
                     <p>Description: {{ $cocktail['description'] }}</p>
                     <a href="{{ route('cocktails.show', $cocktail->id) }}" class="btn btn-primary">More Info</a>
                     <a href="{{ route('cocktails.edit', $cocktail->id) }}" class="btn btn-primary">Edit</a>
+                    <form action="{{ route('cocktails.destroy', $cocktail->id) }}" method="POST">
+                        @csrf
+
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger"
+                            onclick="return confirm('Are you sure you want to delete?')">
+                            Delete
+                        </button>
+                    </form>
                 </div>
             </div>
         @endforeach
