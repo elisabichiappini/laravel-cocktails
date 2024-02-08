@@ -25,6 +25,8 @@
                     <h4>Price: {{ $cocktail['price'] }}</h4>
                     <h4>Is Alcholic: {{ $cocktail['is_alcholic'] }}</h4>
                     <p>Description: {{ $cocktail['description'] }}</p>
+                    <a href="{{ route('cocktails.show', $cocktail->id) }}" class="btn btn-primary">More Info</a>
+                    <a href="{{ route('cocktails.edit', $cocktail->id) }}" class="btn btn-primary">Edit</a>
                 </div>
             </div>
         @endforeach
