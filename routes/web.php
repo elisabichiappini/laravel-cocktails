@@ -23,4 +23,12 @@ Route::get('/', function () {
 //rotta dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
 
+//admin routes
+Route::middleware(['auth', 'verified'])
+->name('admin.')
+->prefix('admin')
+->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+});
+
 require __DIR__.'/auth.php';
