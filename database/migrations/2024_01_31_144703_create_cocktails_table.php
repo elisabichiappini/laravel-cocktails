@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 15);
-            $table->string('brand', 20);
-            $table->decimal('price', 4, 2);
-            $table->boolean('is_alcholic')->default(true);
-            $table->text('description');
+            $table->string('brand', 20)->nullable();
+            $table->decimal('price', 4, 2)->nullable();
+            $table->boolean('is_alcholic')->default(true)->nullable();
+            $table->text('description')->nullable();
 
             $table->timestamps();
         });

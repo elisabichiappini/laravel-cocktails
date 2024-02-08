@@ -22,7 +22,7 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        //
+        return view('cocktails.create');
     }
 
     /**
@@ -30,15 +30,20 @@ class CocktailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $cocktail = new Cocktail();
+        $cocktail->fill($data);
+        $cocktail->save();
+
+        return redirect()->route('cocktails.show', $cocktail->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Cocktail $cocktail)
     {
-        //
+        return view('cocktails.show', compact('cocktail'));
     }
 
     /**

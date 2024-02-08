@@ -11,7 +11,10 @@
 </head>
 
 <body>
-    <h1 class="text-center py-5">Cocktails</h1>
+    <div class="text-center mb-3">
+        <h1 class="text-center py-5">Cocktails</h1>
+        <a href="{{ route('cocktails.create') }}" class="btn btn-info btn-sm" role="button">Nuovo Cocktail</a>
+    </div>
     <div class="container d-flex justify-content-center flex-wrap gap-3">
         @foreach ($cocktails as $cocktail)
             {{-- <li>{{ $cocktail['name'] }}</li> --}}
