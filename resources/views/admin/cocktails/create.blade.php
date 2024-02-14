@@ -46,6 +46,20 @@
                 @enderror
             </div>
             <div class="mb-3">
+                <div>
+                    <label class="form-label">Ingredienti</label>
+                </div>
+                @foreach ($ingredients as $ingredient)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="ingredients[]"
+                            id="ingredient-{{ $ingredient->id }}" value="{{ $ingredient->id }}"
+                            {{ in_array($ingredient->id, old('ingredients', [])) ? 'checked' : '' }}>
+                        <label class="form-check-label"
+                            for="ingredient-{{ $ingredient->id }}">{{ $ingredient->name }}</label>
+                    </div>
+                @endforeach
+            </div>
+            <div class="mb-3">
                 <label for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" style="height: 100px"></textarea>
                 @error('description')

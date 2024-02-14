@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCocktailRequest;
 use App\Http\Requests\UpdateCocktailRequest;
 use App\Models\Cocktail;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
 class CocktailController extends Controller
@@ -24,7 +25,8 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        return view('admin.cocktails.create');
+        $ingredients = Ingredient::all();
+        return view('admin.cocktails.create', compact('ingredients'));
     }
 
     /**
@@ -32,7 +34,7 @@ class CocktailController extends Controller
      */
     public function store(StoreCocktailRequest $request)
     {
-    
+
 
         $data = $request->validated();
 
@@ -45,6 +47,10 @@ class CocktailController extends Controller
         $cocktail->description = $data['description'];
 
         $cocktail->save();
+
+        if (isset($data['ingredients'])) {
+            $cocktail->ingredients()->sync($data['ingredients']);
+        }
 
         return redirect()->route('admin.cocktails.show', $cocktail->id);
     }
@@ -62,7 +68,8 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        return view('admin.cocktails.edit', compact('cocktail'));
+        $ingredients = Ingredient::all();
+        return view('admin.cocktails.edit', compact('cocktail', 'ingredients'));
     }
 
     /**
@@ -73,6 +80,10 @@ class CocktailController extends Controller
         $data = $request->validated();
 
         $cocktail->update($data);
+
+        if (isset($data['ingredients'])) {
+            $cocktail->ingredients()->sync($data['ingredients']);
+        }
 
         return redirect()->route('admin.cocktails.show', compact('cocktail'));
     }

@@ -26,7 +26,8 @@ class StoreCocktailRequest extends FormRequest
             'brand' => 'nullable|max:19|string',
             'price' => 'nullable|decimal:2|max:99.99',
             'is_alcholic' => 'nullable|boolean',
-            'description' => 'nullable|string|max:250'
+            'description' => 'nullable|string|max:250',
+            'ingredients' => 'nullable|exists:ingredients,id'
         ];
     }
 }
