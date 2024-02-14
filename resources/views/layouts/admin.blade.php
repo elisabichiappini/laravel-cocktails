@@ -63,6 +63,12 @@
                                     <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.cocktails.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.cocktails.index')}}">
+                                    <i class="fa-solid fa-martini-glass-citrus fa-lg fa-fw"></i></i> Cocktails
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
