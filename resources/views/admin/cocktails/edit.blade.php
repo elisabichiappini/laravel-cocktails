@@ -57,11 +57,19 @@
                 </div>
                 @foreach ($ingredients as $ingredient)
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="ingredients[]"
-                            id="ingredient-{{ $ingredient->id }}" value="{{ $ingredient->id }}"
-                            {{ in_array($ingredient->id, old('ingredients', [])) ? 'checked' : '' }}>
-                        <label class="form-check-label"
-                            for="ingredient-{{ $ingredient->id }}">{{ $ingredient->name }}</label>
+                        @if ($errors->any())
+                            <input class="form-check-input" type="checkbox" value="{{ $ingredient->id }}"
+                                name="ingredients[]" id="ingredient-{{ $ingredient->id }}"
+                                {{ in_array($ingredient->id, old('ingredients', [])) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="ingredient-{{ $ingredient->id }}">{{ $ingredient->name }}</label>
+                        @else
+                            <input class="form-check-input" type="checkbox" value="{{ $ingredient->id }}"
+                                name="ingredients[]" id="ingredient-{{ $ingredient->id }}"
+                                {{ $cocktail->ingredients->contains($ingredient->id) ? 'checked' : '' }}>
+                            <label class="form-check-label"
+                                for="ingredient-{{ $ingredient->id }}">{{ $ingredient->name }}</label>
+                        @endif
                     </div>
                 @endforeach
             </div>
