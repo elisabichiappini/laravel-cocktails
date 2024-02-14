@@ -23,6 +23,12 @@
                 <h4>Price: {{ $cocktail['price'] }}</h4>
                 <h4>Is Alcholic: {{ $cocktail['is_alcholic'] }}</h4>
                 <p>Description: {{ $cocktail['description'] }}</p>
+                Ingredients:
+                <ul>
+                    @foreach ($cocktail->ingredients as $ingredient)
+                        <li>{{ $ingredient->name }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>
