@@ -24,7 +24,7 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        return view('cocktails.create');
+        return view('admin.cocktails.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class CocktailController extends Controller
         $cocktail->fill($data);
         $cocktail->save();
 
-        return redirect()->route('cocktails.show', $cocktail->id);
+        return redirect()->route('admin.cocktails.show', $cocktail->id);
     }
 
     /**
@@ -45,7 +45,7 @@ class CocktailController extends Controller
      */
     public function show(Cocktail $cocktail)
     {
-        return view('cocktails.show', compact('cocktail'));
+        return view('admin.cocktails.show', compact('cocktail'));
     }
 
     /**
@@ -53,7 +53,7 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        return view('cocktails.edit', compact('cocktail'));
+        return view('admin.cocktails.edit', compact('cocktail'));
     }
 
     /**
@@ -65,7 +65,7 @@ class CocktailController extends Controller
 
         $cocktail->update($data);
 
-        return redirect()->route('cocktails.show', compact('cocktail'));
+        return redirect()->route('admin.cocktails.show', compact('cocktail'));
     }
 
     /**
@@ -75,6 +75,6 @@ class CocktailController extends Controller
     {
         $cocktail->delete();
 
-        return redirect()->route('cocktails.index');
+        return redirect()->route('admin.cocktails.index');
     }
 }

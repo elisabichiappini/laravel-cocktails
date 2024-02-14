@@ -13,7 +13,7 @@
 <body>
     <div class="text-center mb-3">
         <h1 class="text-center py-5">Cocktails</h1>
-        <a href="{{ route('cocktails.index') }}" class="btn btn-info btn-sm" role="button">Indietro</a>
+        <a href="{{ route('admin.cocktails.index') }}" class="btn btn-info btn-sm" role="button">Indietro</a>
     </div>
     <div class="container d-flex justify-content-center flex-wrap gap-3">
         <div class="card" style="width: 18rem;">
