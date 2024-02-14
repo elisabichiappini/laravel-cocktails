@@ -32,9 +32,18 @@ class CocktailController extends Controller
      */
     public function store(StoreCocktailRequest $request)
     {
+    
+
         $data = $request->validated();
+
         $cocktail = new Cocktail();
-        $cocktail->fill($data);
+
+        $cocktail->name = $data['name'];
+        $cocktail->brand = $data['brand'];
+        $cocktail->price = $data['price'];
+        $cocktail->is_alcholic = $data['is_alcholic'];
+        $cocktail->description = $data['description'];
+
         $cocktail->save();
 
         return redirect()->route('admin.cocktails.show', $cocktail->id);
