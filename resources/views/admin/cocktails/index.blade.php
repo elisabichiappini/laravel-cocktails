@@ -19,12 +19,15 @@
                     <td>{{ $cocktail['name'] }}</td>
                     <td>{{ $cocktail['brand'] }}</td>
                     <td class="text-end">
-                        <a href="{{ route('admin.cocktails.show', $cocktail) }}" class="btn btn-info btn-sm">Show</a>
-                        <a href="{{ route('admin.cocktails.edit', $cocktail) }}" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="{{ route('admin.cocktails.show', $cocktail) }}" class="btn btn-info btn-sm"><i
+                                class="fa-regular fa-eye me-1" style="color:#fff"></i>Show</a>
+                        <a href="{{ route('admin.cocktails.edit', $cocktail) }}" class="btn btn-primary btn-sm"><i
+                                class="fa-solid fa-pen-to-square me-1"></i>Edit</a>
                         <form action="{{ route('admin.cocktails.destroy', $cocktail) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            <button type="submit" value="Delete" class="btn btn-danger btn-sm"><i
+                                    class="fa-solid fa-trash"></i> Delete</button>
                         </form>
                     </td>
                 </tr>
