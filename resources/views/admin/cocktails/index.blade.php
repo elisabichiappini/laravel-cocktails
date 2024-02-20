@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Lista Cocktails</h1>
+    <h1 class="text-center pt-2">Lista Cocktails</h1>
     <a href="{{ route('admin.cocktails.create') }}"><i class="fa-solid fa-plus fa-lg fa-fw"></i></a>
     <table class="table table-striped">
         <thead>
