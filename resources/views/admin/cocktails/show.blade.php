@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel Template</title>
-    <!--inclusione assets con direttiva vite-->
-    @vite('resources/js/app.js')
-    <!--/inclusione assets con direttiva vite-->
-</head>
-
-<body>
+@section('content')
     <div class="text-center mb-3">
         <h1 class="text-center py-5">Cocktails</h1>
-        <a href="{{ route('admin.cocktails.index') }}" class="btn btn-info btn-sm" role="button">Indietro</a>
     </div>
     <div class="container d-flex justify-content-center flex-wrap gap-3">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h2>Name: {{ $cocktail['name'] }}</h2>
-                <h3>Brand: {{ $cocktail['brand'] }}</h3>
-                <h4>Price: {{ $cocktail['price'] }}</h4>
-                <h4>Is Alcholic: {{ $cocktail['is_alcholic'] }}</h4>
-                <p>Description: {{ $cocktail['description'] }}</p>
-                Ingredients:
-                <ul>
+                <h2>{{ $cocktail['name'] }}</h2>
+                <h3>{{ $cocktail['brand'] }}</h3>
+                <h4>{{ $cocktail['price'] }} €</h4>
+                    @if ($cocktail['is_alcholic'] == 0) 
+                        <h6>Not alcholic</h6>
+                    @else 
+                        <h6>Alcholic</h6>    
+                    @endif
+                <p>{{ $cocktail['description'] }}</p>
+                <h5>Ingredients</h5>
+                <ul class="list-unstyled">
                     @foreach ($cocktail->ingredients as $ingredient)
                         <li>{{ $ingredient->name }}</li>
                     @endforeach
@@ -32,5 +25,7 @@
             </div>
         </div>
     </div>
-
-</body>
+    <div class="text-center my-3">
+        <a href="{{ route('admin.cocktails.index') }}" class="btn btn-info btn-sm" role="button">Indietro</a>
+    </div>
+@endsection
